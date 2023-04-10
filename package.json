@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@next/font": "^13.1.5",
-    "@paytweed/frontend-sdk-react": "^0.5.6",
+    "@paytweed/frontend-sdk-react": "^0.6.0",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",

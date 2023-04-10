@@ -61,6 +61,10 @@ const WalletData = () => {
       blockchainId: "ethereum",
     });
   };
+  
+  const xxx = async () => {
+    sdk.transaction.send({blockchainId: 'tezos', transaction: 'asdasd', settings: {returnUrl: true} })
+  } 
 
   const onCreateRecovery = async () => {
     const reAddress = await sdk.wallet.createRecovery();
