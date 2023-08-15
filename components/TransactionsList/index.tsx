@@ -1,6 +1,6 @@
 import {
   CoinTransaction,
-  CryptoTransaction,
+  TokenBalance,
   TokenTransaction,
 } from "@paytweed/frontend-sdk-react";
 import { SubTitle, Table, Td, Th } from "../../style";
@@ -8,7 +8,7 @@ import { SubTitle, Table, Td, Th } from "../../style";
 const chains = ["tezosGhost", "polygonMumbai", "ethereumGoerli"];
 
 interface Data {
-  [k: string]: Array<CryptoTransaction>;
+  [k: string]: Array<CoinTransaction | TokenTransaction>;
 }
 
 const TransactionsList: React.FC<{ data: Data }> = ({ data }) => {
@@ -34,24 +34,27 @@ const TransactionsList: React.FC<{ data: Data }> = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data[chain].map((entry) => (
-            <tr key={entry.id}>
+          {data[chain].map((entry) => {
+            const tokenMetadata = (entry as TokenTransaction)?.['tokenMetadata']
+            const coinMetadata = (entry as CoinTransaction)?.['coinMetadata']
+
+            return (<tr key={entry.id}>
               <Td>{entry.createdAt}</Td>
               <Td>{entry.value}</Td>
               <Td>
-                {entry?.tokenMetadata?.tokenName ||
-                  entry?.coinMetadata?.coinName}
+                {tokenMetadata?.tokenName ||
+                  coinMetadata?.coinName}
               </Td>
               <Td>
-                {entry?.tokenMetadata?.tokenSymbol ||
-                  entry?.coinMetadata?.coinSymbol}
+                {tokenMetadata?.tokenSymbol ||
+                  coinMetadata?.coinSymbol}
               </Td>
               <Td>{entry.direction}</Td>
               <Td>{entry.fromAddress}</Td>
               <Td>{entry.toAddress}</Td>
               <Td>{entry.status}</Td>
-            </tr>
-          ))}
+            </tr>)}
+          )}
         </tbody>
       </Table>
     </>

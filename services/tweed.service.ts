@@ -1,5 +1,5 @@
-import { TweedBackendSDK } from "@paytweed/backend-sdk";
-import nftService from "./nft.service";
+import { Environment, TweedBackendSDK } from '@paytweed/backend-sdk'
+import nftService from './nft.service'
 
 type AsyncReturnType<T> = T extends (...args: any[]) => Promise<infer R>
   ? R
@@ -16,6 +16,7 @@ class TweedService {
       callbacks: {
         getNftPurchaseData: async ({ nftId }) => nftService.getById(nftId),
       },
+      environment: Environment.staging
     });
     return this._client;
   }

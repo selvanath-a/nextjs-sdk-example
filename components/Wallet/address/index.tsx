@@ -1,5 +1,5 @@
 import { hooks } from "@paytweed/frontend-sdk-react";
-import { QrButton, WalletAddress } from "../../../style";
+import { QrButton, WalletAddress } from '@/style';
 
 interface WalletAddressProps {
   chainIds: string[];

@@ -8,7 +8,7 @@ import {
   MenuItemsLine,
   Title,
   Wrapper,
-} from "../../style";
+} from '@/style';
 import TransactionsList from "../TransactionsList";
 import WalletAddress from "./address";
 import WalletActionsSection from "./actions";
@@ -21,17 +21,17 @@ const WalletData = () => {
     loading: blockchainListLoading,
     error: blockchainListError,
   } = hooks.useBlockchainList();
-  const [logoutWallet] = hooks.useLogout();
+  const logoutWallet = hooks.useWalletLogout();
 
-  const chainIds = blockchainList;
+  const chainIds = blockchainList?.map(bc=>bc.id);
 
   useEffect(() => {
     if (!blockchainList) return;
-    setSelectedChain(blockchainList[0]);
+    setSelectedChain(blockchainList[0].id);
   }, [blockchainList]);
 
   function handleLogout() {
-    logoutWallet({});
+    logoutWallet();
   }
 
   if (!selectedChain || !chainIds) return null;

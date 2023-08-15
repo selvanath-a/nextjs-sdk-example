@@ -1,5 +1,5 @@
 import { hooks } from "@paytweed/frontend-sdk-react";
-import { Button, Menu, MenuItemsLine } from "../../../style";
+import { Button } from '@/style';
 
 interface WalletActionsSectionProps {
   selectedChain: string;

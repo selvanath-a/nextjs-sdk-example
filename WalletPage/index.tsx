@@ -1,5 +1,5 @@
 import { hooks } from "@paytweed/frontend-sdk-react";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect } from 'react'
 import WalletData from "../components/Wallet";
 import S from "./style";
 
@@ -14,7 +14,7 @@ const Wallet = () => {
   useEffect(() => {
     if (walletExists === undefined) return;
     if (!walletExists)
-      return createWallet({ callbacks: { onSuccess: onWalletCreated } });
+      createWallet({ callbacks: { onSuccess: onWalletCreated } });
   }, [walletExists]);
 
   const renderContent = () => {
