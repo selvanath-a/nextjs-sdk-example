@@ -1,5 +1,6 @@
 import { TweedBackendSDK } from "@paytweed/backend-sdk";
 import nftService from "./nft.service";
+import tokenService from "./token.service";
 
 type AsyncReturnType<T> = T extends (...args: any[]) => Promise<infer R>
   ? R
@@ -15,6 +16,8 @@ class TweedService {
       defaultBlockchainIds: ["ethereumSepolia"],
       callbacks: {
         getNftPurchaseData: async ({ nftId }) => nftService.getById(nftId),
+        getTokenPurchaseData: async ({ tokenId }) =>
+          tokenService.getById(tokenId),
       },
     });
     return this._client;

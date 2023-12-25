@@ -13,11 +13,11 @@ class NftService {
       priceInCents: this._getNftPrice(),
       fiatCurrencyId: "USD",
       tokenUri: "NFT_TOKEN_URI",
-      contractAddress: "0x80BB55333968136cda2Ed28f2D63B74D521CAA73",
-      chain: "ethereumGoerli",
+      contractAddress: "0x2Eb78f2521166C4bf4F998f51E614A5658d238C4",
+      chain: "ethereumSepolia",
       title: "NFT_TITLE",
       description: "NFT_DESCRIPTION",
-      abi: "mint(toAddress address, tokenUri string)",
+      abi: "safeMint(toAddress address, tokenUri string)",
     };
   }
 }

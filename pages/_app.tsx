@@ -16,7 +16,10 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <div style={{ width: "99vw", height: "90vh" }}>
-      <TweedFrontendSdkProvider sendMessageToBackend={sendMessageToBackend}>
+      <TweedFrontendSdkProvider
+        sendMessageToBackend={sendMessageToBackend}
+        defaultBlockchainIds={["ethereumSepolia"]}
+      >
         <Component {...pageProps} />
       </TweedFrontendSdkProvider>
     </div>
