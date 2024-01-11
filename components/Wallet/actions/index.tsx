@@ -11,6 +11,7 @@ export default function WalletActionsSection({
   const [sendCoinToWallet] = hooks.useSendCoinToWallet();
   const [createRecoveryKit] = hooks.useCreateRecovery();
   const [buyNft] = hooks.useBuyNft();
+  const [createRecovery] = hooks.useCreateRecovery();
   const tweedClient = hooks.useTweedFrontendSDK();
 
   async function handlSendTransaction() {
@@ -34,11 +35,17 @@ export default function WalletActionsSection({
     buyNft({ nftId: "1" });
   }
 
+  function handleCreateRecovery() {
+    createRecovery();
+  }
+
   return (
     <>
       <Button onClick={handlSendTransaction}>Send Transaction</Button>
       <Button onClick={handelCreateRecoveryKit}>Create a Recovery Kit</Button>
       <Button onClick={handleBuyNft}>Buy Nft</Button>
+      <Button onClick={handleCreateRecovery}>Create Recovery Kit</Button>
+
     </>
   );
 }
